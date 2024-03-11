@@ -58,7 +58,7 @@ jobs:
       uses: 'google-github-actions/auth@v2'
       with:
         project_id: '${{ env.PROJECT_ID }}'
-        credentials_json: '${{ secrets.GPG_CREDENTIALS }}'
+        workload_identity_provider: '${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}'
 
     - id: 'deploy'
       name: 'Deploy on Google Cloud Functions'
