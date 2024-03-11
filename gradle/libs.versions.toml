@@ -1,0 +1,12 @@
+[versions]
+kotlin = "1.9.21"
+
+[libraries]
+gcloud-functions-framework = { module = "com.google.cloud.functions:functions-framework-api", version = "1.0.4" }
+gcloud-functions-invoker = { module = "com.google.cloud.functions.invoker:java-function-invoker", version = "1.2.0" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+microutil-logging = { module = "io.github.microutils:kotlin-logging", version = "3.0.4" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+johnrengelman-shadow = { id = "com.github.johnrengelman.shadow", version = "7.1.2" }

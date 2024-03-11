@@ -1,12 +1,10 @@
-import java.lang.invoke.MethodHandles.invoker
-
 val invoker by configurations.creating
 
-val packageName = "dev.marcocattaneo.function"
+val packageName = "dev.mcatta.function"
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.7.21"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.johnrengelman.shadow)
     application
 }
 
@@ -15,17 +13,11 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.github.microutils:kotlin-logging:3.0.4")
-    implementation("com.google.cloud.functions:functions-framework-api:1.0.4")
-    invoker("com.google.cloud.functions.invoker:java-function-invoker:1.2.0")
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.gcloud.functions.framework)
+    implementation(libs.microutil.logging)
 
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
-    testImplementation("org.mockito:mockito-core:4.8.0")
-    testImplementation("com.google.truth:truth:1.1.3")
-    testImplementation("com.google.guava:guava-testlib:31.1-jre")
+    invoker(libs.gcloud.functions.invoker)
 }
 
 application {
@@ -33,7 +25,7 @@ application {
 }
 
 task<JavaExec>("runFunction") {
-    main = "com.google.cloud.functions.invoker.runner.Invoker"
+    mainClass.set("com.google.cloud.functions.invoker.runner.Invoker")
     classpath(invoker)
     inputs.files(configurations.runtimeClasspath, sourceSets["main"].output)
     args(

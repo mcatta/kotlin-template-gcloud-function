@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package dev.marcocattaneo.function
+package dev.mcatta.function
 
 import com.google.cloud.functions.HttpFunction
 import com.google.cloud.functions.HttpRequest
