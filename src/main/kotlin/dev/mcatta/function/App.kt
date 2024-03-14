@@ -8,7 +8,7 @@ import com.google.cloud.functions.HttpResponse
 import mu.KotlinLogging
 import java.io.IOException
 
-class HttpSampleApp : HttpFunction {
+class App : HttpFunction {
 
     private val logger = KotlinLogging.logger {}
 

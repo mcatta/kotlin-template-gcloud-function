@@ -40,11 +40,3 @@ task<JavaExec>("runFunction") {
 tasks.named("build") {
     dependsOn(":shadowJar")
 }
-
-task("buildFunction") {
-    dependsOn("build")
-    copy {
-        from("build/libs/" + rootProject.name + "-all.jar")
-        into("build/deploy")
-    }
-}

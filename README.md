@@ -22,11 +22,6 @@ You can find the author's article [here](https://mwhyte.dev/creating-google-clou
 gcloud config set functions/region europe-west1
 ```
 
-###### build function
-```
-./gradlew buildFunction
-```
-
 ###### deploy function
 ```
 gcloud functions deploy my-test-function \
