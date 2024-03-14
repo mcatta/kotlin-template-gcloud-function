@@ -2,7 +2,8 @@ name: Cloud Function Deploy
 
 on:
   push:
-    branches: [ "prod" ]
+    tags:
+      - 'v*.*.*'
 
 permissions:
   contents: read
